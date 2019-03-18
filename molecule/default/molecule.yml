@@ -1,0 +1,36 @@
+---
+dependency:
+  name: galaxy
+  enabled: False
+driver:
+  name: lxd
+lint:
+  name: yamllint
+platforms:
+  - name: master
+    groups:
+      - k3s-server
+      - all
+  - name: agent1
+    groups:
+      - k3s-agent
+      - all
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+  env:
+    ANSIBLE_ROLES_PATH: ${PWD}/roles
+  playbooks:
+    converge: ../../k3s-cluster.yml
+  inventory:
+    links:
+      group_vars: ../../inventories/molecule/group_vars
+scenario:
+  name: default
+verifier:
+  name: testinfra
+  options:
+    junit-xml: report.xml
+  lint:
+    name: flake8
