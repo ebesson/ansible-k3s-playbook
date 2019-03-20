@@ -2,9 +2,9 @@
 - hosts: k3s-server
   become: True
   roles:
-    - k3s
+    - ebesson.k3s
 
 - hosts: k3s-agent
   become: True
   roles:
-    - k3s
+    - ebesson.k3s
