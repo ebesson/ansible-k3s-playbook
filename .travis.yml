@@ -29,5 +29,5 @@ install:
   - sudo pip install --ignore-installed PyYAML
   - sudo pip install molecule==2.19.0
 script:
-  - sudo ansible-galaxy install -r requirements.yml
+  - sudo ansible-galaxy install -r requirements.yml -p roles
   - sudo molecule test
