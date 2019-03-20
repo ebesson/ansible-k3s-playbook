@@ -3,7 +3,7 @@ import os
 import testinfra.utils.ansible_runner
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
-    os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('k3s-server')
+    os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('k3s-master')
 
 
 def test_k3s_service(host):

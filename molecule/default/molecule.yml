@@ -1,7 +1,7 @@
 ---
 dependency:
   name: galaxy
-  enabled: False
+  enabled: True
 driver:
   name: lxd
 lint:
@@ -9,7 +9,7 @@ lint:
 platforms:
   - name: master
     groups:
-      - k3s-server
+      - k3s-master
       - all
   - name: agent1
     groups:
