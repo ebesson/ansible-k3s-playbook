@@ -1,5 +1,5 @@
 ---
-- hosts: k3s-server
+- hosts: k3s-master
   become: True
   roles:
     - ebesson.k3s
