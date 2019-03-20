@@ -1,0 +1,4 @@
+---
+- src: https://github.com/ebesson/ansible-role-k3s
+  version: master
+  name: ebesson.k3s

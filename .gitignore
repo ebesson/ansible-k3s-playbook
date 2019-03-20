@@ -6,3 +6,4 @@ tests/report.xml
 report.xml
 *.retry
 .vscode
+roles
