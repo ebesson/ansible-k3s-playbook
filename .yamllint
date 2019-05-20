@@ -1,6 +1,6 @@
 extends: default
 ignore: |
-  roles-dependencies
+  roles
 
 rules:
   braces:
