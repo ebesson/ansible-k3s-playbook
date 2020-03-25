@@ -12,7 +12,8 @@ def test_k3s_service(host):
 
 
 def test_kubectl_get_nodes(host):
-    kubectl_get_nodes = host.run("kubectl get nodes")
-    assert kubectl_get_nodes.rc == 0
-    assert "master   Ready" in kubectl_get_nodes.stdout
-    assert "agent1   Ready" in kubectl_get_nodes.stdout
+    with host.sudo():
+        kubectl_get_nodes = host.run("kubectl get nodes")
+        assert kubectl_get_nodes.rc == 0
+        assert "master   Ready" in kubectl_get_nodes.stdout
+        assert "agent1   Ready" in kubectl_get_nodes.stdout
