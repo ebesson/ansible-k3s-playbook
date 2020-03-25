@@ -49,6 +49,12 @@ provisioner:
     name: ansible-lint
   env:
     ANSIBLE_ROLES_PATH: ${PWD}/roles
+  config_options:
+    defaults:
+      forks: 20
+    ssh_connection:
+      pipelining: true
+      ssh_args: -o ControlMaster=auto -o ControlPersist=600s
   playbooks:
     converge: ../../k3s-cluster.yml
   inventory:
