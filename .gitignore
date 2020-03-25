@@ -1,9 +1,10 @@
 __pycache__/
 tests/report.xml
+.tox/
 *.pyc
 .cache
 .molecule
 report.xml
 *.retry
 .vscode
-roles
+roles/

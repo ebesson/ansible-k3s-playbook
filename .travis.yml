@@ -31,5 +31,4 @@ install:
   - sudo pip install testinfra==3.0.4
 
 script:
-  - sudo ansible-galaxy install -r requirements.yml -p roles
-  - sudo molecule test
+  - sudo tox -e ci
