@@ -1,17 +1,45 @@
 ---
 dependency:
   name: galaxy
-  enabled: True
+  options:
+    role-file: requirements.yml
+    roles-path: roles
 driver:
-  name: lxd
+  name: vagrant
+  provider:
+    name: libvirt
 lint:
   name: yamllint
 platforms:
   - name: master
+    box: generic/ubuntu1604
+    interfaces:
+      - auto_config: true
+        network_name: private_network
+        ip: "192.168.99.20"
+        virtualbox__hostnet: vboxnet2
+        adapter: 2
+    provider_raw_config_args:
+      - 'nic_model_type = "virtio"'
+      - 'disk_bus = "virtio"'
+      - 'volume_cache = "none"'
+      - 'storage :file, bus: "virtio", cache: "none"'
     groups:
       - k3s-master
       - all
   - name: agent1
+    box: generic/ubuntu1604
+    interfaces:
+      - auto_config: true
+        network_name: private_network
+        ip: "192.168.99.30"
+        virtualbox__hostnet: vboxnet2
+        adapter: 2
+    provider_raw_config_args:
+      - 'nic_model_type = "virtio"'
+      - 'disk_bus = "virtio"'
+      - 'volume_cache = "none"'
+      - 'storage :file, bus: "virtio", cache: "none"'
     groups:
       - k3s-agent
       - all
