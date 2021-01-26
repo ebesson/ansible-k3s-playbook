@@ -1,3 +1,4 @@
 ---
 k3s_master_node_address: "{{ hostvars['master'].ansible_default_ipv4.address }}"
 k3s_cluster_token: "{{ hostvars['master']['k3s_cluster_token'] }}"
+k3s_addtionnal_config: --snapshotter native
